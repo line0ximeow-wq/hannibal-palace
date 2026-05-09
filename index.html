@@ -2,36 +2,169 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Дворец Памяти</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Palace | Analysis & Translations</title>
     <style>
-        body {
-            background-color: #0d0d0d; /* Черный как нуар */
-            color: #d1d1d1;
-            font-family: "Georgia", serif; /* Красивый шрифт с засечками */
-            line-height: 1.6;
-            padding: 5%;
-            max-width: 900px;
-            margin: auto;
+        /* ОСНОВНЫЕ НАСТРОЙКИ (СТИЛЬ ЛЕКТЕРА) */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #c4c4c4;
+            --accent-color: #800000; /* Глубокий красный */
+            --border-color: #2a2a2a;
+            --font-main: "Georgia", serif;
         }
-        h1 { color: #8b0000; text-align: center; font-style: italic; }
-        .divider { border-bottom: 1px solid #333; margin: 30px 0; }
-        
-        /* Оформление диалогов по вашим правилам */
-        .dialogue p { margin: 10px 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ШАПКА САЙТА */
+        header {
+            width: 100%;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to bottom, #121212, #0a0a0a);
+        }
+
+        .site-title {
+            font-size: 2.5em;
+            letter-spacing: 5px;
+            color: #f0f0f0;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .site-subtitle {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        /* ОСНОВНОЙ КОНТЕЙНЕР */
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        /* БЛОК РАЗБОРА */
+        .analysis-card {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .analysis-card h2 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+
+        /* РАБОТА С КАРТИНКАМИ (КАДРАМИ) */
+        .frame-wrapper {
+            position: relative;
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            background: #111;
+        }
+
+        .frame-wrapper img {
+            width: 100%;
+            display: block;
+            filter: grayscale(20%) contrast(110%);
+            transition: 0.5s;
+        }
+
+        .frame-wrapper img:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        /* ТЕКСТОВЫЙ КОНТЕНТ */
+        .content-text {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        /* ОФОРМЛЕНИЕ ДИАЛОГОВ (ПО ВАШИМ ПРАВИЛАМ) */
+        .dialogue-block {
+            margin: 30px 0;
+            padding-left: 30px;
+            border-left: 1px solid var(--accent-color);
+        }
+
+        .dialogue-block p {
+            margin: 5px 0;
+            font-style: italic;
+        }
+
+        /* ПОДВАЛ */
+        footer {
+            padding: 40px;
+            font-size: 0.8em;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ССЫЛКИ */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #ff0000;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Дворец памяти: Анализ</h1>
-    <div class="divider"></div>
+    <header>
+        <h1 class="site-title">Memory Palace</h1>
+        <div class="site-subtitle">Визуальный и литературный анализ</div>
+    </header>
 
-    <h2>Введение</h2>
-    <p>Это пространство посвящено детальному разбору визуального языка и скрытых смыслов...</p>
+    <div class="container">
+        
+        <!-- БЛОК РАЗБОРА №1 -->
+        <article class="analysis-card">
+            <h2>01. Primavera: Визуальные рифмы Боттичелли</h2>
+            
+            <div class="frame-wrapper">
+                <!-- Замените ссылку на реальный кадр -->
+                <img src="https://64.media.tumblr.com/13768b4468f7f5298835848e35f9921b/tumblr_inline_p8vzm6lWqB1u7lksf_1280.jpg" alt="Hannibal S3 Frame">
+            </div>
 
-    <div class="dialogue">
-        <p>— Я не нахожу этот анализ забавным, — произнес Ганнибал.</p>
-        <p>— А вы не анализируйте, доктор. Просто смотрите, — ответил Уилл.</p>
+            <div class="content-text">
+                <p>Здесь вы можете написать свой глубокий разбор сцены. Используйте профессиональную терминологию и описывайте детали композиции.</p>
+                
+                <div class="dialogue-block">
+                    <p>— Я вижу в этом весну, — сказал он, не оборачиваясь.</p>
+                    <p>— Весна всегда требует жертв для своего цветения, — ответил голос из тени.</p>
+                </div>
+
+                <p>Ваш дальнейший анализ текста или перевода...</p>
+            </div>
+        </article>
+
     </div>
+
+    <footer>
+        &copy; 2026 curated by you & your partner
+    </footer>
 
 </body>
 </html>
