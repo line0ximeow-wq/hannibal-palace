@@ -3,168 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Palace | Analysis & Translations</title>
+    <title>Primavera Analysis — Memory Palace</title>
     <style>
-        /* ОСНОВНЫЕ НАСТРОЙКИ (СТИЛЬ ЛЕКТЕРА) */
+        /* ЦВЕТОВАЯ ПАЛИТРА В СТИЛЕ TATTLECRIME */
         :root {
-            --bg-color: #0a0a0a;
-            --text-color: #c4c4c4;
-            --accent-color: #800000; /* Глубокий красный */
-            --border-color: #2a2a2a;
-            --font-main: "Georgia", serif;
+            --bg-paper: #e8e4db; /* Цвет старой бумаги */
+            --accent-red: #a31d1d;
+            --dark-ink: #1a1a1a;
+            --border-style: 2px solid #1a1a1a;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
+            background-color: #121212; /* Темный фон вокруг "газеты" */
+            color: var(--dark-ink);
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 0;
-            line-height: 1.8;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
         }
 
-        /* ШАПКА САйТА */
-        header {
+        .main-container {
+            background-color: var(--bg-paper);
+            max-width: 1100px;
             width: 100%;
-            padding: 60px 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(to bottom, #121212, #0a0a0a);
-        }
-
-        .site-title {
-            font-size: 2.5em;
-            letter-spacing: 5px;
-            color: #f0f0f0;
-            text-transform: uppercase;
-            margin: 0;
-            font-weight: 300;
-        }
-
-        .site-subtitle {
-            font-style: italic;
-            color: var(--accent-color);
-            margin-top: 10px;
-            font-size: 1.1em;
-        }
-
-        /* ОСНОВНОЙ КОНТЕЙНЕР */
-        .container {
-            max-width: 900px;
-            width: 90%;
-            margin: 40px auto;
-        }
-
-        /* БЛОК РАЗБОРА */
-        .analysis-card {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 40px;
-        }
-
-        .analysis-card h2 {
-            color: #fff;
-            font-size: 1.8em;
-            margin-bottom: 25px;
-        }
-
-        /* РАБОТА С КАРТИНКАМИ (КАДРАМИ) */
-        .frame-wrapper {
-            position: relative;
-            margin: 30px 0;
-            border: 1px solid var(--border-color);
-            padding: 5px;
-            background: #111;
-        }
-
-        .frame-wrapper img {
-            width: 100%;
-            display: block;
-            filter: grayscale(20%) contrast(110%);
-            transition: 0.5s;
-        }
-
-        .frame-wrapper img:hover {
-            filter: grayscale(0%) contrast(100%);
-        }
-
-        /* ТЕКСТОВЫЙ КОНТЕНТ */
-        .content-text {
-            font-size: 1.1em;
-            text-align: justify;
-        }
-
-        /* ОФОРМЛЕНИЕ ДИАЛОГОВ (ПО ВАШИМ ПРАВИЛАМ) */
-        .dialogue-block {
-            margin: 30px 0;
-            padding-left: 30px;
-            border-left: 1px solid var(--accent-color);
-        }
-
-        .dialogue-block p {
-            margin: 5px 0;
-            font-style: italic;
-        }
-
-        /* ПОДВАЛ */
-        footer {
             padding: 40px;
-            font-size: 0.8em;
-            color: #444;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            border: var(--border-style);
+            position: relative;
+        }
+
+        /* ШАПКА В СТИЛЕ ТАБЛОИДА */
+        header {
+            border-bottom: 5px double var(--dark-ink);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .site-name {
+            font-size: 4em;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: -2px;
+            margin: 0;
+            line-height: 0.9;
         }
 
-        /* ССЫЛКИ */
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: 0.3s;
+        .site-name span {
+            color: var(--accent-red);
         }
 
-        a:hover {
-            color: #ff0000;
+        .top-meta {
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid var(--dark-ink);
+            border-bottom: 2px solid var(--dark-ink);
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+
+        /* СЕТКА (КАК В ТАТТЛ КРАЙМ) */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        /* ЛЕВАЯ КОЛОНКА (ЗАМЕТКИ) */
+        aside {
+            border-right: 1px solid #ccc;
+            padding-right: 20px;
+        }
+
+        .sidebar-box {
+            background: #dcd7cc;
+            padding: 15px;
+            border: 1px solid #bbb;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-box h3 {
+            margin: 0 0 10px 0;
+            background: var(--dark-ink);
+            color: white;
+            padding: 5px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        /* ЦЕНТРАЛЬНАЯ ЧАСТЬ (РАЗБОР ПРИМАВЕРЫ) */
+        .main-article h1 {
+            font-size: 2.5em;
+            margin-top: 0;
+            color: var(--accent-red);
+            line-height: 1;
+        }
+
+        .lead-image {
+            width: 100%;
+            border: 1px solid var(--dark-ink);
+            margin: 20px 0;
+            filter: sepia(30%);
+        }
+
+        .analysis-text {
+            font-family: 'Georgia', serif;
+            font-size: 1.15em;
+            line-height: 1.6;
+            column-count: 1; /* Можно сделать 2 для эффекта газеты */
+        }
+
+        /* ПОЛЕ ДЛЯ ВАШЕГО ТЕКСТА */
+        .placeholder-box {
+            border: 2px dashed var(--accent-red);
+            padding: 20px;
+            background: rgba(163, 29, 29, 0.05);
+            margin: 20px 0;
+            min-height: 200px;
+        }
+
+        /* ОФОРМЛЕНИЕ ДИАЛОГОВ (КАК ВЫ ПРОСИЛИ) */
+        .dialogue-section {
+            background: #fff;
+            padding: 20px;
+            border-left: 5px solid var(--accent-red);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .dialogue-section p {
+            margin: 8px 0;
+            font-style: italic;
+        }
+
+        /* ФУТЕР */
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid var(--dark-ink);
+            padding-top: 10px;
+            font-size: 0.7em;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1 class="site-title">Memory Palace</h1>
-        <div class="site-subtitle">Визуальный и литературный анализ</div>
-    </header>
-
-    <div class="container">
-        
-        <!-- БЛОК РАЗБОРА №1 -->
-        <article class="analysis-card">
-            <h2>01. Primavera: Визуальные рифмы Боттичелли</h2>
-            
-            <div class="frame-wrapper">
-                <!-- Замените ссылку на реальный кадр -->
-                <img src="https://64.media.tumblr.com/13768b4468f7f5298835848e35f9921b/tumblr_inline_p8vzm6lWqB1u7lksf_1280.jpg" alt="Hannibal S3 Frame">
+    <div class="main-container">
+        <header>
+            <p style="margin: 0; font-size: 0.8em; font-weight: bold;">EXCLUSIVE ANALYSIS // TOP SECRET</p>
+            <h1 class="site-name">MEMORY<span>PALACE</span></h1>
+            <div class="top-meta">
+                <span>VOL. 01 — ISSUE 03</span>
+                <span>BALTIMORE, MD</span>
+                <span>PRICE: YOUR MIND</span>
             </div>
+        </header>
 
-            <div class="content-text">
-                <p>Здесь вы можете написать свой глубокий разбор сцены. Используйте профессиональную терминологию и описывайте детали композиции.</p>
-                
-                <div class="dialogue-block">
-                    <p>— Я вижу в этом весну, — сказал он, не оборачиваясь.</p>
-                    <p>— Весна всегда требует жертв для своего цветения, — ответил голос из тени.</p>
+        <div class="layout-grid">
+            <!-- ЛЕВАЯ КОЛОНКА (ДЛЯ ВАШИХ ПРИМЕЧАНИЙ) -->
+            <aside>
+                <div class="sidebar-box">
+                    <h3>CASE NOTES</h3>
+                    <p style="font-size: 0.85em;">
+                        <!-- МЕСТО ДЛЯ КРАТКИХ ЗАМЕТОК -->
+                        [ Впишите сюда краткие тезисы или примечания переводчика ]
+                    </p>
                 </div>
+                
+                <div class="sidebar-box">
+                    <h3>REFERENCES</h3>
+                    <ul style="font-size: 0.8em; padding-left: 15px;">
+                        <li>Botticelli, 1482</li>
+                        <li>Harris, T.</li>
+                        <li>Fuller, B.</li>
+                    </ul>
+                </div>
+            </aside>
 
-                <p>Ваш дальнейший анализ текста или перевода...</p>
-            </div>
-        </article>
+            <!-- ОСНОВНОЙ РАЗБОР -->
+            <main class="main-article">
+                <h1>PRIMAVERA: VISUAL DECODING</h1>
+                
+                <img src="https://64.media.tumblr.com/13768b4468f7f5298835848e35f9921b/tumblr_inline_p8vzm6lWqB1u7lksf_1280.jpg" class="lead-image" alt="Primavera Frame">
 
+                <div class="analysis-text">
+                    <p><b>ОСНОВНОЙ РАЗБОР:</b></p>
+                    <div class="placeholder-box">
+                        <!-- СЮДА ВПИШИТЕ ВАШ ТЕКСТ РАЗБОРА ПРИМАВЕРЫ -->
+                        [ Вставьте ваш текст анализа значения Примаверы в сериале здесь ]
+                    </div>
+
+                    <div class="dialogue-section">
+                        <!-- МЕСТО ДЛЯ ДИАЛОГОВ (ОФОРМЛЕНИЕ ПО ВАШИМ ПРАВИЛАМ) -->
+                        <p>— [ Имя ]: [ Реплика ]</p>
+                        <p>— [ Имя ]: [ Реплика ]</p>
+                    </div>
+
+                    <p><b>ДОПОЛНИТЕЛЬНЫЕ МЫСЛИ:</b></p>
+                    <div class="placeholder-box">
+                        [ Второе поле для разбора или перевода ]
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            CONFIDENTIAL — PROPERTY OF THE CHESAPEAKE RIPPER — DO NOT CIRCULATE
+        </footer>
     </div>
-
-    <footer>
-        &copy; 2026 curated by you & your partner
-    </footer>
 
 </body>
 </html>
